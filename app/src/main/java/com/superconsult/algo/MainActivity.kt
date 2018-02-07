@@ -24,12 +24,10 @@ class MainActivity : AppCompatActivity() {
 
                 txtBenchmark.text = "Running time ".plus( totalTime.toString()).plus(" seconds")
 
-                txtResult.text = "Result: ".plus(result)
+                txtResult.text = "Fibonacci Number: ".plus(result)
             }else{
                 Toast.makeText(applicationContext,"Please Enter a number",Toast.LENGTH_LONG).show()
             }
-
-
 
         }
 
@@ -37,22 +35,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun fibonacci(n : Int): BigInteger {
-        var current = BigInteger.valueOf(0)
-        var after = BigInteger.valueOf(1)
+        var currentValue = BigInteger.valueOf(0)
+        var futureValue = BigInteger.valueOf(1)
         var temp  =BigInteger.valueOf(0)
 
         for (i in 0..n -1 step 1) run {
-            //            curent , after = after , current + after  1 1 2 3 5 8
-//            temp = x;
-//            x = y;
-//            y = temp;
-            temp = current
-            current = after
-            after = temp + after
+
+            temp = currentValue
+            currentValue = futureValue
+            futureValue = temp + futureValue
         }
-//        280571172992510140037611932413038677189525
 
-
-        return current
+        return currentValue
     }
 }
